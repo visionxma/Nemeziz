@@ -1553,40 +1553,22 @@ ul { list-style: none; }
   .awards-stage { height: 340px; }
 }
 @media (max-width: 768px) {
-  /* Stack-and-detach: cards start overlapping; as you scroll, each one detaches from the pile */
+  /* Cards entram de baixo e se 'destacam' progressivamente */
   .feat-right .feat-row,
   .notif-right .notif-card,
   .faq-list details {
-    transform-origin: center top;
-    transform: translateY(var(--stack-y, -42px)) scale(var(--stack-s, .94));
-    opacity: var(--stack-o, .55);
-    transition: transform .8s cubic-bezier(.2,.8,.2,1), opacity .6s ease, box-shadow .8s ease;
+    transform: translateY(40px) scale(.96);
+    opacity: 0;
+    transition: transform .7s cubic-bezier(.2,.8,.2,1), opacity .6s ease, box-shadow .6s ease;
     will-change: transform, opacity;
   }
   .feat-right .feat-row.detached,
   .notif-right .notif-card.detached,
   .faq-list details.detached {
-    --stack-y: 0px;
-    --stack-s: 1;
-    --stack-o: 1;
-    box-shadow: 0 18px 40px rgba(0,0,0,.22);
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    box-shadow: 0 14px 30px rgba(0,0,0,.18);
   }
-
-  /* Progressive depth — back cards smaller and more faded */
-  .feat-right .feat-row:nth-child(1)        { --stack-y: -60px; --stack-s: .88; --stack-o: .35; }
-  .feat-right .feat-row:nth-child(2)        { --stack-y: -52px; --stack-s: .91; --stack-o: .45; }
-  .feat-right .feat-row:nth-child(3)        { --stack-y: -42px; --stack-s: .94; --stack-o: .55; }
-  .feat-right .feat-row:nth-child(4)        { --stack-y: -32px; --stack-s: .97; --stack-o: .7;  }
-
-  .notif-right .notif-card:nth-child(1)     { --stack-y: -54px; --stack-s: .9;  --stack-o: .4;  }
-  .notif-right .notif-card:nth-child(2)     { --stack-y: -42px; --stack-s: .93; --stack-o: .55; }
-  .notif-right .notif-card:nth-child(3)     { --stack-y: -30px; --stack-s: .97; --stack-o: .75; }
-
-  .faq-list details:nth-child(1)            { --stack-y: -60px; --stack-s: .88; --stack-o: .3;  }
-  .faq-list details:nth-child(2)            { --stack-y: -50px; --stack-s: .91; --stack-o: .42; }
-  .faq-list details:nth-child(3)            { --stack-y: -40px; --stack-s: .94; --stack-o: .55; }
-  .faq-list details:nth-child(4)            { --stack-y: -30px; --stack-s: .96; --stack-o: .7;  }
-  .faq-list details:nth-child(5)            { --stack-y: -20px; --stack-s: .98; --stack-o: .82; }
 }
 
 @media (max-width: 640px) {
