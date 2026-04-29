@@ -1553,21 +1553,40 @@ ul { list-style: none; }
   .awards-stage { height: 340px; }
 }
 @media (max-width: 768px) {
-  /* Cards entram de baixo e se 'destacam' progressivamente */
+  /* Pilha de cartas: cards 2+ começam encostados no anterior (margin-top negativo)
+     com leve escala/rotação. Conforme você rola, cada um se solta da pilha. */
   .feat-right .feat-row,
   .notif-right .notif-card,
   .faq-list details {
-    transform: translateY(40px) scale(.96);
-    opacity: 0;
-    transition: transform .7s cubic-bezier(.2,.8,.2,1), opacity .6s ease, box-shadow .6s ease;
-    will-change: transform, opacity;
+    transition: margin-top .8s cubic-bezier(.2,.8,.2,1),
+                transform .8s cubic-bezier(.2,.8,.2,1),
+                opacity .5s ease,
+                box-shadow .5s ease;
+    will-change: margin-top, transform, opacity;
+    transform-origin: center top;
   }
+
+  /* Cards 2+ ficam empilhados em cima dos anteriores */
+  .feat-right .feat-row:nth-child(2)        { margin-top: -110px; transform: scale(.96) rotate(-1deg); opacity: .75; }
+  .feat-right .feat-row:nth-child(3)        { margin-top: -110px; transform: scale(.92) rotate(1.2deg); opacity: .55; }
+  .feat-right .feat-row:nth-child(4)        { margin-top: -110px; transform: scale(.88) rotate(-1.5deg); opacity: .4; }
+
+  .notif-right .notif-card:nth-child(2)     { margin-top: -90px; transform: scale(.95) rotate(-1.2deg); opacity: .7; }
+  .notif-right .notif-card:nth-child(3)     { margin-top: -90px; transform: scale(.9) rotate(1.5deg); opacity: .5; }
+
+  .faq-list details:nth-child(2)            { margin-top: -68px; transform: scale(.97) rotate(-.8deg); opacity: .75; }
+  .faq-list details:nth-child(3)            { margin-top: -68px; transform: scale(.94) rotate(1deg); opacity: .58; }
+  .faq-list details:nth-child(4)            { margin-top: -68px; transform: scale(.91) rotate(-1.2deg); opacity: .42; }
+  .faq-list details:nth-child(5)            { margin-top: -68px; transform: scale(.88) rotate(1.4deg); opacity: .3; }
+
+  /* Quando entra na viewport, sai da pilha */
   .feat-right .feat-row.detached,
   .notif-right .notif-card.detached,
   .faq-list details.detached {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-    box-shadow: 0 14px 30px rgba(0,0,0,.18);
+    margin-top: 14px !important;
+    transform: scale(1) rotate(0deg) !important;
+    opacity: 1 !important;
+    box-shadow: 0 14px 32px rgba(0,0,0,.2);
   }
 }
 

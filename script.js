@@ -218,19 +218,41 @@ safe('counter', () => {
 
 // ============ STACK & DETACH ON SCROLL (mobile) ============
 safe('stackDetach', () => {
-  const targets = document.querySelectorAll(
-    '.feat-right .feat-row, .notif-right .notif-card, .faq-list details'
-  );
-  if (!targets.length) return;
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('detached');
-        io.unobserve(entry.target);
-      }
+  const groups = document.querySelectorAll('.feat-right, .notif-right, .faq-list');
+  if (!groups.length) return;
+  const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+
+  const update = () => {
+    if (!isMobile()) {
+      // No desktop: limpa qualquer estado para não interferir
+      document.querySelectorAll('.detached').forEach(el => el.classList.remove('detached'));
+      return;
+    }
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    groups.forEach(group => {
+      const cards = group.children;
+      const groupRect = group.getBoundingClientRect();
+      // Quanto da seção já passou pela viewport (0 = começou a aparecer, 1 = saiu)
+      const start = vh * 0.85; // começa a destacar quando 15% do bottom alcança
+      const distance = start - groupRect.top;
+      const perCard = 110; // pixels de scroll para destacar cada card
+      const detachedCount = Math.max(0, Math.floor(distance / perCard));
+      Array.from(cards).forEach((card, i) => {
+        if (i < detachedCount) card.classList.add('detached');
+        else card.classList.remove('detached');
+      });
     });
-  }, { threshold: 0.45, rootMargin: '0px 0px -10% 0px' });
-  targets.forEach(el => io.observe(el));
+  };
+
+  let ticking = false;
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { update(); ticking = false; });
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
 });
 
 // ============ AWARDS SCROLL SPREAD ============
