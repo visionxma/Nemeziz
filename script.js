@@ -216,6 +216,23 @@ safe('counter', () => {
   counters.forEach(c => counterIO.observe(c));
 });
 
+// ============ STACK & DETACH ON SCROLL (mobile) ============
+safe('stackDetach', () => {
+  const targets = document.querySelectorAll(
+    '.feat-right .feat-row, .notif-right .notif-card, .faq-list details'
+  );
+  if (!targets.length) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('detached');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.45, rootMargin: '0px 0px -10% 0px' });
+  targets.forEach(el => io.observe(el));
+});
+
 // ============ AWARDS SCROLL SPREAD ============
 safe('awards', () => {
   const stage = document.querySelector('.awards-stage');
