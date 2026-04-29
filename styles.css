@@ -48,15 +48,22 @@ body {
   overflow-x: hidden;
   position: relative;
 }
-body::before {
+section {
+  position: relative;
+}
+section::before {
   content: '';
-  position: fixed;
+  position: absolute;
   inset: 0;
   background: url('assets/texture.svg') repeat;
-  background-size: 600px;
-  opacity: .6;
+  background-size: 420px;
+  opacity: .18;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 0;
+}
+section > * {
+  position: relative;
+  z-index: 1;
 }
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
