@@ -1,6 +1,39 @@
 // Helper: run a block, log error but never break the rest of the script
 const safe = (label, fn) => { try { fn(); } catch (e) { console.warn('[' + label + ']', e); } };
 
+// ============ DISABLE ZOOM (mobile + desktop) ============
+safe('zoom', () => {
+  // iOS gesture events (Safari)
+  ['gesturestart', 'gesturechange', 'gestureend'].forEach(evt => {
+    document.addEventListener(evt, (e) => e.preventDefault(), { passive: false });
+  });
+
+  // Pinch-to-zoom via touch
+  document.addEventListener('touchmove', (e) => {
+    if (e.touches && e.touches.length > 1) e.preventDefault();
+  }, { passive: false });
+
+  // Double-tap to zoom (iOS)
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', (e) => {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 320) e.preventDefault();
+    lastTouchEnd = now;
+  }, { passive: false });
+
+  // Ctrl/Cmd + scroll zoom (desktop)
+  document.addEventListener('wheel', (e) => {
+    if (e.ctrlKey || e.metaKey) e.preventDefault();
+  }, { passive: false });
+
+  // Ctrl/Cmd + +/-/0 keyboard zoom (desktop)
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && ['+', '-', '=', '0'].includes(e.key)) {
+      e.preventDefault();
+    }
+  });
+});
+
 // ============ BELL SOUND (Web Audio) ============
 const bell = (() => {
   let ctx = null;
