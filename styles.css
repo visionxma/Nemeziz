@@ -1028,6 +1028,110 @@ ul { list-style: none; }
   pointer-events: none;
 }
 
+/* ============ BRINDES (MERCH) ============ */
+.merch {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+  background: #050314;
+  color: #fff;
+}
+.merch-bg {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.merch-bg::before {
+  content: '';
+  position: absolute;
+  inset: -10%;
+  background: url('assets/Placas faturamento 250K.jpg') center/cover no-repeat;
+  filter: blur(80px) saturate(1.2);
+  opacity: .25;
+  transform: scale(1.1);
+}
+.merch-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 50% 60% at 20% 50%, rgba(120,53,254,.3), transparent 65%),
+    linear-gradient(180deg, rgba(5,3,20,.4) 0%, rgba(5,3,20,.6) 100%);
+}
+.merch .container { position: relative; z-index: 1; }
+
+.merch-split {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.merch-pill {
+  display: inline-block;
+  padding: 6px 18px;
+  border: 1.5px solid rgba(120,53,254,.5);
+  background: rgba(120,53,254,.1);
+  color: #c4b5fd;
+  font-weight: 600;
+  font-size: 13px;
+  border-radius: 999px;
+  margin-bottom: 22px;
+}
+.merch-left h2 {
+  font-size: clamp(30px, 3.6vw, 44px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  margin-bottom: 16px;
+}
+.merch-left h2 .grad {
+  background: linear-gradient(180deg, #a78bfa 0%, #7835fe 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.merch-sub { font-size: 17px; font-weight: 600; color: #fff; margin-bottom: 14px; }
+.merch-desc { font-size: 15px; line-height: 1.6; color: #a39bb8; max-width: 460px; }
+
+.merch-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.merch-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 20px 16px 16px;
+  background: rgba(20,12,40,.6);
+  border: 1px solid rgba(120,53,254,.25);
+  border-radius: 16px;
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.merch-card:hover {
+  transform: translateX(6px);
+  border-color: rgba(120,53,254,.6);
+  box-shadow: 0 12px 30px rgba(120,53,254,.18);
+}
+.merch-thumb {
+  flex-shrink: 0;
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #15102a;
+  border: 1px solid rgba(120,53,254,.2);
+}
+.merch-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.merch-info { flex: 1; }
+.merch-info h3 { font-size: 17px; font-weight: 700; margin-bottom: 4px; color: #fff; }
+.merch-info p { color: #a39bb8; font-size: 14px; line-height: 1.5; }
+
 /* ============ PLATAFORMAS ============ */
 .platforms {
   position: relative;
@@ -1366,6 +1470,7 @@ ul { list-style: none; }
   .feat-grid, .steps, .t-grid, .plans { grid-template-columns: 1fr 1fr; }
   .feat-split { grid-template-columns: 1fr; gap: 40px; }
   .notif-split { grid-template-columns: 1fr; gap: 40px; }
+  .merch-split { grid-template-columns: 1fr; gap: 40px; }
   .stats-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
   .footer-inner { grid-template-columns: 1fr; gap: 40px; }
   .plan-featured { transform: none; }
