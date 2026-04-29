@@ -1552,6 +1552,30 @@ ul { list-style: none; }
   }
   .awards-stage { height: 340px; }
 }
+@media (max-width: 768px) {
+  /* Sticky stacking effect — cards pile up as you scroll on mobile */
+  .feat-right .feat-row,
+  .notif-right .notif-card,
+  .faq-list details {
+    position: sticky;
+    box-shadow: 0 -8px 30px rgba(0,0,0,.18), 0 14px 40px rgba(0,0,0,.25);
+  }
+  .feat-right .feat-row:nth-child(1)        { top: 90px;  }
+  .feat-right .feat-row:nth-child(2)        { top: 108px; }
+  .feat-right .feat-row:nth-child(3)        { top: 126px; }
+  .feat-right .feat-row:nth-child(4)        { top: 144px; }
+
+  .notif-right .notif-card:nth-child(1)     { top: 90px;  }
+  .notif-right .notif-card:nth-child(2)     { top: 108px; }
+  .notif-right .notif-card:nth-child(3)     { top: 126px; }
+
+  .faq-list details:nth-child(1)            { top: 90px;  }
+  .faq-list details:nth-child(2)            { top: 102px; }
+  .faq-list details:nth-child(3)            { top: 114px; }
+  .faq-list details:nth-child(4)            { top: 126px; }
+  .faq-list details:nth-child(5)            { top: 138px; }
+}
+
 @media (max-width: 640px) {
   .feat-grid, .steps, .t-grid, .plans { grid-template-columns: 1fr; }
   .awards-stage { height: 260px; }
