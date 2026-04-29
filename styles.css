@@ -48,20 +48,21 @@ body {
   overflow-x: hidden;
   position: relative;
 }
-section {
+section, footer {
   position: relative;
 }
-section::before {
+section::before, footer::before {
   content: '';
   position: absolute;
   inset: 0;
   background: url('assets/texture.svg') repeat;
   background-size: 420px;
-  opacity: .18;
+  opacity: .12;
   pointer-events: none;
   z-index: 0;
+  mix-blend-mode: difference;
 }
-section > * {
+section > *, footer > * {
   position: relative;
   z-index: 1;
 }
