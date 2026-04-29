@@ -1137,30 +1137,15 @@ ul { list-style: none; }
   position: relative;
   padding: 100px 0;
   overflow: hidden;
-  background: #050314;
-  color: #fff;
+  background: #ffffff;
+  color: #0f0a1f;
 }
 .platforms-bg {
   position: absolute; inset: 0;
   pointer-events: none;
-  overflow: hidden;
-}
-.platforms-bg::before {
-  content: '';
-  position: absolute;
-  inset: -10%;
-  background: url('assets/Placas faturamento 1M.jpg') center/cover no-repeat;
-  filter: blur(80px) saturate(1.2);
-  opacity: .28;
-  transform: scale(1.1);
-}
-.platforms-bg::after {
-  content: '';
-  position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 50% 60% at 50% 50%, rgba(120,53,254,.3), transparent 65%),
-    radial-gradient(ellipse 30% 40% at 50% 100%, rgba(120,53,254,.22), transparent 65%),
-    linear-gradient(180deg, rgba(5,3,20,.4) 0%, rgba(5,3,20,.6) 100%);
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(120,53,254,.08), transparent 65%),
+    radial-gradient(ellipse 40% 40% at 50% 100%, rgba(120,53,254,.06), transparent 65%);
 }
 .platforms .container { position: relative; z-index: 1; }
 
@@ -1172,9 +1157,9 @@ ul { list-style: none; }
 .platforms-pill {
   display: inline-block;
   padding: 6px 18px;
-  border: 1.5px solid rgba(120,53,254,.5);
-  background: rgba(120,53,254,.1);
-  color: #c4b5fd;
+  border: 1.5px solid rgba(120,53,254,.4);
+  background: rgba(120,53,254,.08);
+  color: #7835fe;
   font-weight: 600;
   font-size: 13px;
   border-radius: 999px;
@@ -1186,6 +1171,7 @@ ul { list-style: none; }
   line-height: 1.15;
   letter-spacing: -.02em;
   margin-bottom: 18px;
+  color: #0f0a1f;
 }
 .platforms-head h2 .grad {
   background: linear-gradient(180deg, #a78bfa 0%, #7835fe 100%);
@@ -1195,7 +1181,7 @@ ul { list-style: none; }
 }
 .platforms-head p {
   font-size: 16px;
-  color: #a39bb8;
+  color: #5b5470;
   line-height: 1.6;
 }
 
@@ -1212,8 +1198,8 @@ ul { list-style: none; }
   position: relative;
   width: 240px;
   padding: 38px 28px 28px;
-  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
-  border: 1px solid rgba(120,53,254,.25);
+  background: #ffffff;
+  border: 1px solid #ececf5;
   border-radius: 22px;
   text-align: center;
   transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
@@ -1221,8 +1207,8 @@ ul { list-style: none; }
 }
 .platform-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(120,53,254,.6);
-  box-shadow: 0 20px 50px rgba(120,53,254,.25);
+  border-color: rgba(120,53,254,.5);
+  box-shadow: 0 20px 50px rgba(120,53,254,.18);
 }
 .platform-glow {
   position: absolute;
@@ -1263,13 +1249,14 @@ ul { list-style: none; }
   font-weight: 800;
   margin-bottom: 10px;
   letter-spacing: -.01em;
+  color: #0f0a1f;
 }
 .platform-status {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   font-size: 12px;
-  color: #a39bb8;
+  color: #5b5470;
   font-weight: 500;
 }
 .status-dot {
@@ -1415,8 +1402,7 @@ ul { list-style: none; }
   --sec-card: #ffffff;
   --sec-border: #ececf5;
 }
-.testimonials,
-.faq {
+.testimonials {
   --sec-bg: #0a0613;
   --sec-text: #f5f3ff;
   --sec-muted: #a39bb8;
