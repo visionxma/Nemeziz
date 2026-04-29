@@ -1053,67 +1053,112 @@ ul { list-style: none; }
 /* ============ BRINDES (MERCH) ============ */
 .merch {
   position: relative;
-  padding: 100px 0;
+  padding: 80px 0;
+}
+
+.merch-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  background: linear-gradient(135deg, #15102a 0%, #0a0613 100%);
+  border: 1px solid rgba(120,53,254,.18);
+  border-radius: 28px;
+  padding: 60px 0 60px 60px;
   overflow: hidden;
-  background: #050314;
   color: #fff;
+  box-shadow: 0 30px 80px rgba(0,0,0,.4);
 }
-.merch-bg {
-  position: absolute; inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-.merch-bg::before {
+.merch-card::before {
   content: '';
   position: absolute;
-  inset: -10%;
-  background: url('assets/Placas faturamento 250K.jpg') center/cover no-repeat;
-  filter: blur(80px) saturate(1.2);
-  opacity: .25;
-  transform: scale(1.1);
-}
-.merch-bg::after {
-  content: '';
-  position: absolute; inset: 0;
+  inset: 0;
   background:
-    radial-gradient(ellipse 50% 60% at 20% 50%, rgba(120,53,254,.3), transparent 65%),
-    linear-gradient(180deg, rgba(5,3,20,.4) 0%, rgba(5,3,20,.6) 100%);
+    radial-gradient(ellipse 60% 70% at 0% 50%, rgba(120,53,254,.18), transparent 60%),
+    radial-gradient(ellipse 50% 60% at 100% 50%, rgba(76,29,149,.22), transparent 65%);
+  pointer-events: none;
 }
-.merch .container { position: relative; z-index: 1; }
 
-.merch-split {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 80px;
-  align-items: center;
+.merch-card-content {
+  position: relative;
+  z-index: 2;
+  max-width: 460px;
 }
 
 .merch-pill {
   display: inline-block;
-  padding: 6px 18px;
-  border: 1.5px solid rgba(120,53,254,.5);
-  background: rgba(120,53,254,.1);
+  padding: 7px 18px;
+  background: rgba(120,53,254,.15);
+  border: 1px solid rgba(120,53,254,.4);
   color: #c4b5fd;
-  font-weight: 600;
-  font-size: 13px;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
   border-radius: 999px;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
-.merch-left h2 {
-  font-size: clamp(30px, 3.6vw, 44px);
+.merch-card-content h2 {
+  font-size: clamp(30px, 3.4vw, 42px);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -.02em;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
-.merch-left h2 .grad {
+.merch-card-content h2 .grad {
   background: linear-gradient(180deg, #7835fe 0%, #4c1d95 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
-.merch-sub { font-size: 17px; font-weight: 600; color: #fff; margin-bottom: 14px; }
-.merch-desc { font-size: 15px; line-height: 1.6; color: #a39bb8; max-width: 460px; }
+.merch-desc {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #a39bb8;
+  margin-bottom: 28px;
+}
+.merch-cta {
+  background: #fff;
+  color: #0a0613;
+  padding: 14px 24px;
+  font-size: 15px;
+}
+.merch-cta:hover { background: #f5f3ff; transform: translateY(-2px); }
+
+/* Visual column */
+.merch-card-visual {
+  position: relative;
+  height: 100%;
+  min-height: 380px;
+}
+.merch-shape {
+  position: absolute;
+  border-radius: 18px;
+  box-shadow: 0 30px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.04);
+  transition: transform .5s cubic-bezier(.2,.8,.2,1);
+}
+.merch-shape-1 { /* Polo — protagonista */
+  width: 75%;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+.merch-shape-2 { /* Boné */
+  width: 45%;
+  top: 6%;
+  right: -8%;
+  z-index: 3;
+}
+.merch-shape-3 { /* Card */
+  width: 38%;
+  bottom: 4%;
+  right: -4%;
+  z-index: 1;
+}
+.merch-card:hover .merch-shape-1 { transform: translateY(-50%) translateX(-8px); }
+.merch-card:hover .merch-shape-2 { transform: translateX(-12px) translateY(-6px); }
+.merch-card:hover .merch-shape-3 { transform: translateX(-10px) translateY(4px); }
 
 .merch-right {
   display: flex;
@@ -1494,7 +1539,8 @@ ul { list-style: none; }
   .feat-grid, .steps, .t-grid, .plans { grid-template-columns: 1fr 1fr; }
   .feat-split { grid-template-columns: 1fr; gap: 40px; }
   .notif-split { grid-template-columns: 1fr; gap: 40px; }
-  .merch-split { grid-template-columns: 1fr; gap: 40px; }
+  .merch-card { grid-template-columns: 1fr; padding: 40px; gap: 30px; }
+  .merch-card-visual { min-height: 300px; }
   .stats-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
   .footer-inner { grid-template-columns: 1fr; gap: 40px; }
   .plan-featured { transform: none; }
