@@ -261,10 +261,11 @@ ul { list-style: none; }
   color: #fff;
 }
 .hero-title .grad {
-  background: linear-gradient(180deg, #7835fe 0%, #4c1d95 100%);
+  background: linear-gradient(180deg, #c4b5fd 0%, #7835fe 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  filter: drop-shadow(0 0 24px rgba(120, 53, 254, .55));
 }
 
 .hero-sub {
