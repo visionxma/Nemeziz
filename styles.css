@@ -53,8 +53,8 @@ body::before {
   position: fixed;
   inset: 0;
   background: url('assets/texture.svg') repeat;
-  background-size: 360px;
-  opacity: .05;
+  background-size: 280px;
+  opacity: .25;
   pointer-events: none;
   z-index: 9999;
   mix-blend-mode: overlay;
