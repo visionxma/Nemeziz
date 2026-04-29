@@ -152,8 +152,8 @@ ul { list-style: none; }
   height: 72px;
   gap: 32px;
 }
-.logo { display: inline-flex; align-items: center; }
-.logo-img { height: 32px; width: auto; display: block; }
+.logo { display: inline-flex; align-items: center; flex-shrink: 0; }
+.logo-img { height: 32px; width: auto; display: block; flex-shrink: 0; max-width: none; }
 .logo-dark { display: none; }
 [data-theme="dark"] .logo-light { display: none; }
 [data-theme="dark"] .logo-dark { display: block; }
