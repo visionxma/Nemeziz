@@ -1591,6 +1591,16 @@ ul { list-style: none; }
 
 @media (max-width: 640px) {
   .feat-grid, .steps, .t-grid, .plans { grid-template-columns: 1fr; }
+  /* Hero panel ocupa toda a largura no mobile pra ficar visível */
+  .hero-panel { padding: 0; max-width: 100%; }
+  .hero-panel img { border-radius: 14px 14px 0 0; }
+  .hero { padding-top: 40px; }
+  .hero-title { font-size: clamp(32px, 9vw, 48px); }
+  .hero-sub { font-size: 15px; }
+  /* Wave menos profundo pra não comer tanto da imagem */
+  .hero-wave-wrap { margin-top: -110px; }
+  .hero-wave { height: 130px; }
+  .hero-chevron { bottom: 28px; }
   .awards-stage { height: 260px; }
   .award {
     --w: calc(70px + var(--i) * 10px);
