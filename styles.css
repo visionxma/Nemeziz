@@ -1263,7 +1263,7 @@ ul { list-style: none; }
 
 .platforms-head {
   text-align: center;
-  max-width: 760px;
+  max-width: 980px;
   margin: 0 auto 60px;
 }
 .platforms-pill {
@@ -1278,12 +1278,16 @@ ul { list-style: none; }
   margin-bottom: 18px;
 }
 .platforms-head h2 {
-  font-size: clamp(30px, 4vw, 46px);
+  font-size: clamp(24px, 3.4vw, 42px);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -.02em;
   margin-bottom: 18px;
   color: #0f0a1f;
+  white-space: nowrap;
+}
+@media (max-width: 760px) {
+  .platforms-head h2 { white-space: normal; font-size: clamp(24px, 6vw, 32px); }
 }
 .platforms-head h2 .grad {
   background: linear-gradient(180deg, #7835fe 0%, #4c1d95 100%);
