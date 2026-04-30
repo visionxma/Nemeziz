@@ -1312,7 +1312,8 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   width: 100%;
-  overflow: hidden;
+  /* Clipa apenas horizontal — deixa hover lift visível */
+  clip-path: inset(-60px 0 -60px 0);
 }
 .cloud-row-top    { top: 22px; }
 .cloud-row-bottom { bottom: 22px; }
