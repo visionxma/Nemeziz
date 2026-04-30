@@ -1247,17 +1247,17 @@ ul { list-style: none; }
 /* ============ PLATAFORMAS ============ */
 .platforms {
   position: relative;
-  padding: 100px 0;
+  padding: 100px 0 80px;
   overflow: hidden;
-  background: #ffffff;
-  color: #0f0a1f;
+  background: #050314;
+  color: #fff;
 }
 .platforms-bg {
   position: absolute; inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(120,53,254,.08), transparent 65%),
-    radial-gradient(ellipse 40% 40% at 50% 100%, rgba(120,53,254,.06), transparent 65%);
+    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(120,53,254,.28), transparent 65%),
+    radial-gradient(ellipse 40% 40% at 50% 100%, rgba(120,53,254,.18), transparent 70%);
 }
 .platforms .container { position: relative; z-index: 1; }
 
@@ -1269,9 +1269,9 @@ ul { list-style: none; }
 .platforms-pill {
   display: inline-block;
   padding: 6px 18px;
-  border: 1.5px solid rgba(120,53,254,.4);
-  background: rgba(120,53,254,.08);
-  color: #7835fe;
+  border: 1.5px solid rgba(120,53,254,.5);
+  background: rgba(120,53,254,.12);
+  color: #c4b5fd;
   font-weight: 600;
   font-size: 13px;
   border-radius: 999px;
@@ -1283,7 +1283,7 @@ ul { list-style: none; }
   line-height: 1.15;
   letter-spacing: -.02em;
   margin-bottom: 18px;
-  color: #0f0a1f;
+  color: #fff;
 }
 .platforms-head h2 .grad {
   background: linear-gradient(180deg, #7835fe 0%, #4c1d95 100%);
@@ -1293,20 +1293,91 @@ ul { list-style: none; }
 }
 .platforms-head p {
   font-size: 16px;
-  color: #5b5470;
+  color: #a39bb8;
   line-height: 1.6;
 }
 
-.platforms-row {
+/* Logo cloud — duas linhas com Nemeziz no centro */
+.platforms-cloud {
+  position: relative;
+  margin: 0 auto 40px;
+  max-width: 1100px;
+  height: 320px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+}
+.cloud-row {
+  position: absolute;
+  left: 0; right: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-  max-width: 880px;
-  margin-left: auto;
-  margin-right: auto;
+  justify-content: center;
+  gap: 28px;
+  width: 100%;
+}
+.cloud-row-top    { top: 22px; }
+.cloud-row-bottom { bottom: 22px; }
+.cloud-logo {
+  flex-shrink: 0;
+  width: 96px; height: 96px;
+  border-radius: 22px;
+  background: rgba(20,12,40,.4);
+  border: 1px solid rgba(120,53,254,.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: .7;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), opacity .3s ease, border-color .3s ease, box-shadow .35s ease;
+}
+.cloud-logo img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  padding: 14px;
+  box-sizing: border-box;
+}
+.cloud-logo:hover {
+  transform: translateY(-6px) scale(1.06);
+  opacity: 1;
+  border-color: rgba(120,53,254,.45);
+  box-shadow: 0 18px 40px rgba(120,53,254,.3);
+}
+
+/* Centro com a marca Nemeziz em destaque */
+.cloud-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 168px; height: 168px;
+  border-radius: 32px;
+  background: linear-gradient(180deg, #1d1340 0%, #0a0613 100%);
+  border: 1px solid rgba(120,53,254,.45);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.04) inset,
+    0 30px 60px rgba(120,53,254,.45),
+    0 0 80px rgba(120,53,254,.35);
+  isolation: isolate;
+}
+.cloud-center img {
+  width: 86px;
+  height: 86px;
+  object-fit: contain;
+  filter: brightness(0) invert(1) drop-shadow(0 2px 14px rgba(120,53,254,.6));
+  position: relative;
+  z-index: 2;
+}
+.cloud-center-glow {
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(circle at center, rgba(120,53,254,.55) 0%, rgba(120,53,254,.2) 30%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 50%;
+  filter: blur(8px);
 }
 
 .platform-card {
@@ -1462,12 +1533,12 @@ ul { list-style: none; }
 
 .platforms-foot {
   text-align: center;
-  background: linear-gradient(180deg, #7835fe 0%, #4c1d95 100%);
+  background: linear-gradient(180deg, #c4b5fd 0%, #7835fe 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 17px;
 }
 
 /* ============ NOTIFICAÇÕES ============ */
