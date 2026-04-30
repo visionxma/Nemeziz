@@ -96,7 +96,7 @@ safe('notif', () => {
 
   const fmtBRL = (n) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const cardHTML = (ev) => `
-    <div class="notif-ico"><img src="assets/SIM1@2x.png" alt=""/></div>
+    <div class="notif-ico"><img src="assets/SIM1@2x.webp" alt=""/></div>
     <div class="notif-body">
       <strong>${ev.type}</strong>
       <span>${ev.house} · R$ ${fmtBRL(ev.value)}</span>
