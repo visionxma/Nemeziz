@@ -890,6 +890,17 @@ ul { list-style: none; }
   font-size: 13px;
   color: var(--text-muted);
 }
+.credit {
+  margin-left: 6px;
+  opacity: .55;
+  font-size: 12px;
+}
+.credit a {
+  color: inherit;
+  border-bottom: 1px dotted currentColor;
+  transition: color .2s ease, opacity .2s ease;
+}
+.credit a:hover { color: var(--primary); opacity: 1; }
 .socials { display: flex; gap: 16px; }
 .socials a {
   width: 36px; height: 36px;
