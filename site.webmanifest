@@ -1,0 +1,28 @@
+{
+  "name": "Nemeziz",
+  "short_name": "Nemeziz",
+  "description": "Painel de gestão para afiliados — CPAs, comissões, cascatas e saque via Pix em tempo real.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#050314",
+  "theme_color": "#7835fe",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "categories": ["business", "finance", "productivity"],
+  "icons": [
+    {
+      "src": "assets/SIM1@2x.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/Logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
