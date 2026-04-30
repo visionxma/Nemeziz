@@ -1311,12 +1311,26 @@ ul { list-style: none; }
   left: 0; right: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 28px;
   width: 100%;
+  overflow: hidden;
 }
 .cloud-row-top    { top: 22px; }
 .cloud-row-bottom { bottom: 22px; }
+.cloud-track {
+  display: flex;
+  gap: 28px;
+  flex-shrink: 0;
+  padding-right: 28px;
+  width: max-content;
+  animation: cloud-marquee 36s linear infinite;
+  will-change: transform;
+}
+.cloud-track-reverse { animation-direction: reverse; animation-duration: 44s; }
+.cloud-row:hover .cloud-track { animation-play-state: paused; }
+@keyframes cloud-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
 .cloud-logo {
   flex-shrink: 0;
   width: 96px; height: 96px;
