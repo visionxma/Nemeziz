@@ -318,7 +318,8 @@ ul { list-style: none; }
     0 30px 80px rgba(0,0,0,.5);
   display: block;
   will-change: transform;
-  animation: panelFloat 7s ease-in-out infinite;
+  transform: translateY(var(--panel-parallax, 0px)) translateZ(0);
+  transition: transform .12s linear;
 }
 @keyframes panelFloat {
   0%, 100% { transform: translateY(0); }
@@ -328,7 +329,7 @@ ul { list-style: none; }
 /* Wave + chevron */
 .hero-wave-wrap {
   position: relative;
-  margin-top: -200px;
+  margin-top: -340px;
   z-index: 3;
   pointer-events: none;
 }

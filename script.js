@@ -288,6 +288,36 @@ safe('stackDetach', () => {
   update();
 });
 
+// ============ HERO PANEL PARALLAX ============
+safe('panelParallax', () => {
+  const panel = document.querySelector('.hero-panel img');
+  const hero = document.querySelector('.hero');
+  if (!panel || !hero) return;
+
+  let ticking = false;
+  const update = () => {
+    const rect = hero.getBoundingClientRect();
+    const heroBottom = rect.bottom;
+    // Parallax range: enquanto o hero está saindo da tela
+    if (heroBottom > 0 && rect.top < window.innerHeight) {
+      const scrolled = -rect.top;
+      // Painel translada a 35% da velocidade do scroll do hero
+      const offset = Math.min(180, Math.max(0, scrolled * 0.35));
+      panel.style.setProperty('--panel-parallax', `-${offset}px`);
+    }
+    ticking = false;
+  };
+
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
+});
+
 // ============ AWARDS SCROLL SPREAD ============
 safe('awards', () => {
   const stage = document.querySelector('.awards-stage');
