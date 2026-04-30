@@ -1320,16 +1320,23 @@ ul { list-style: none; }
   display: flex;
   gap: 28px;
   flex-shrink: 0;
-  padding-right: 28px;
   width: max-content;
   animation: cloud-marquee 36s linear infinite;
   will-change: transform;
 }
-.cloud-track-reverse { animation-direction: reverse; animation-duration: 44s; }
+.cloud-track > .cloud-logo:first-child { margin-left: 28px; }
+.cloud-track-reverse {
+  animation-name: cloud-marquee-reverse;
+  animation-duration: 44s;
+}
 .cloud-row:hover .cloud-track { animation-play-state: paused; }
 @keyframes cloud-marquee {
   from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  to   { transform: translateX(calc(-50% - 14px)); }
+}
+@keyframes cloud-marquee-reverse {
+  from { transform: translateX(calc(-50% - 14px)); }
+  to   { transform: translateX(0); }
 }
 .cloud-logo {
   flex-shrink: 0;
