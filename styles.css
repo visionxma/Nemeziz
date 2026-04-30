@@ -1388,54 +1388,11 @@ ul { list-style: none; }
   background: radial-gradient(circle, rgba(220,38,38,.55) 0%, rgba(239,68,68,.22) 40%, transparent 70%);
 }
 
-/* Letter-based logos para plataformas sem ícone */
-.platform-letter {
-  font-family: 'Gilroy', sans-serif;
-  font-weight: 800;
-  font-size: 44px;
-  letter-spacing: -.04em;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  text-shadow: 0 2px 4px rgba(0,0,0,.08);
-}
-.platform-stake .platform-logo {
-  background: linear-gradient(180deg, #ffffff 0%, #f0fdfa 100%);
-  border: 1px solid rgba(20,184,166,.2);
-}
-.platform-stake .platform-letter {
-  background: linear-gradient(180deg, #14b8a6 0%, #047857 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-.platform-lottu .platform-logo {
-  background: linear-gradient(180deg, #ffffff 0%, #fdf2f8 100%);
-  border: 1px solid rgba(236,72,153,.2);
-}
-.platform-lottu .platform-letter {
-  background: linear-gradient(180deg, #ec4899 0%, #be185d 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-.platform-sportingbet .platform-logo {
-  background: linear-gradient(180deg, #ffffff 0%, #fefce8 100%);
-  border: 1px solid rgba(234,179,8,.25);
-}
-.platform-sportingbet .platform-letter {
-  font-size: 36px;
-  background: linear-gradient(180deg, #eab308 0%, #b45309 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-.platform-superbet .platform-logo {
-  background: linear-gradient(180deg, #ffffff 0%, #fef2f2 100%);
-  border: 1px solid rgba(220,38,38,.2);
-}
-.platform-superbet .platform-letter {
-  background: linear-gradient(180deg, #ef4444 0%, #991b1b 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
+/* Padding interno para imagens que preenchem o quadro edge-to-edge */
+.platform-stake .platform-logo img,
+.platform-lottu .platform-logo img,
+.platform-sportingbet .platform-logo img,
+.platform-superbet .platform-logo img { padding: 14px; box-sizing: border-box; }
 
 .platform-logo {
   position: relative;
