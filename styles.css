@@ -1387,6 +1387,8 @@ ul { list-style: none; }
   transition: transform .5s ease;
 }
 .platform-card:hover .platform-logo img { transform: scale(1.04); }
+/* Blaze image fills the box edge-to-edge — add internal padding to balance with JonBet */
+.platform-blaze .platform-logo img { padding: 16px; box-sizing: border-box; }
 /* shine sweep on hover */
 .platform-logo::after {
   content: '';
