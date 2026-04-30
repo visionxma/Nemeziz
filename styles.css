@@ -1153,7 +1153,13 @@ ul { list-style: none; }
   position: absolute;
   border-radius: 18px;
   box-shadow: 0 30px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.04);
-  transition: transform .5s cubic-bezier(.2,.8,.2,1);
+  transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease, z-index 0s .5s;
+  cursor: pointer;
+}
+.merch-shape:hover {
+  z-index: 20 !important;
+  box-shadow: 0 40px 90px rgba(120,53,254,.45), 0 0 0 1px rgba(167,139,250,.3);
+  transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease, z-index 0s 0s;
 }
 .merch-shape-1 { /* Polo — protagonista */
   width: 75%;
@@ -1177,6 +1183,11 @@ ul { list-style: none; }
 .merch-card:hover .merch-shape-1 { transform: translateY(-50%) translateX(-8px); }
 .merch-card:hover .merch-shape-2 { transform: translateX(-12px) translateY(-6px); }
 .merch-card:hover .merch-shape-3 { transform: translateX(-10px) translateY(4px); }
+
+/* Hover individual: imagem pula pra frente com escala maior */
+.merch-shape-1:hover { transform: translateY(-50%) translateX(-8px) scale(1.08); }
+.merch-shape-2:hover { transform: translateX(-12px) translateY(-6px) scale(1.12); }
+.merch-shape-3:hover { transform: translateX(-10px) translateY(4px) scale(1.15); }
 
 .merch-right {
   display: flex;
